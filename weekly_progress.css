@@ -1,5 +1,5 @@
 body {
-    background-color: #1f1f1f;
+    background-color: #3d3d3d;
     color: white;
     font-family: Arial, sans-serif;
   }
@@ -22,10 +22,11 @@ body {
 
   .habit-grid {
     display: grid;
-    grid-template-columns: 1fr repeat(7, 1fr); /* 1 column for habit name, 7 columns for each day */
-    gap: 10px;
-    margin-top: 20px;
+    grid-template-columns: 0.5fr repeat(7, 1fr); /* Reduced space for habit name */
+    gap: 7px;
+    margin-top: 10px;
   }
+  
 
   .day-item {
     height: 60px;
@@ -39,38 +40,38 @@ body {
   }
 
   .day-name {
-    height: 60px;
+    height: 40px;
     border-radius: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    background-color: #1e1e1e;
+    background-color: #3d3d3d;
     color: #fff;
   }
 
   .habit-name {
     display: flex;
-    width: 100px;
+    /* max-width: 50px; */
 
     justify-content: center;
     align-items: center;
     font-size: 1.1rem;
-    font-weight: bold;
-    background-color: #1e1e1e;
+    /* font-weight: bold; */
+    background-color: #3d3d3d;
     border-radius: 15px;
   }
 
   /* Highlight Completed Days */
   .day-completed {
-    background-color: #ffffff;
-    color: #1f1f1f;
+    background-color: #c6ffba;
+    color: #3d3d3d;
     border: 2px solid #555;
     font-weight: bold;
   }
 
   .day-completed::before {
-    content: "✔"; /* Checkmark */
+     /* Checkmark */
     color: #000;
     font-weight: bold;
   }
@@ -83,7 +84,7 @@ body {
   .view-selector {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 10px;
   }
 
   .view-selector button {
@@ -113,4 +114,7 @@ body {
   .challenges-header span {
     font-size: 0.9rem;
     opacity: 0.8;
+  }
+  .habit-tracker-div{
+    background-color: #3d3d3d;
   }
