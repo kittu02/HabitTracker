@@ -24,6 +24,20 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   color: var(--text-color);
 }
+.modal-content {
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+.modal-content.maximized {
+  position: fixed; /* Fixed position to cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full width */
+  height: 100vh; /* Full height */
+  background-color: white; /* Background color */
+  z-index: 9999; /* Ensure it's above other content */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
 
 .chart-header {
   display: flex;

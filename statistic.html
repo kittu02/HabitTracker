@@ -9,27 +9,51 @@
     
 </head>
 <body>
-    <div class="chart-wrapper">  
-        <div class="chart-header">
-            <h2>Report</h2>
-            <select id="category-select" onchange="updateCategory()">
-              <option value="months">Last 6 Months</option>
-              <option value="weeks">Last 6 Weeks</option>
-              <option value="days">Last 7 Days</option>
-            </select>
-          </div>
-          
-          <div class="chart-container" id="chart-container">
-            <!-- Bar chart for months by default -->
-            <div class="bar" style="--value: 0.6;" data-label="Jan"></div>
-            <div class="bar" style="--value: 0.8;" data-label="Feb"></div>
-            <div class="bar" style="--value: 0.5;" data-label="Mar"></div>
-            <div class="bar" style="--value: 1.0;" data-label="Apr"></div>
-            <div class="bar" style="--value: 0.7;" data-label="May"></div>
-            <div class="bar" style="--value: 0.6;" data-label="Jun"></div>
-          </div>          
-    </div>
 
-    <script src="statistic.js"> </script>
+  <div class="chart-wrapper">  
+    <div class="chart-header">
+        <h2>Report</h2>
+        <select id="category-select" onchange="updateCategory()">
+            <option value="months">Last 6 Months</option>
+            <option value="weeks">Last 6 Weeks</option>
+            <option value="days">Last 7 Days</option>
+        </select>
+    </div>
+    
+    <div class="chart-container" id="chart-container">
+        <!-- Default Bar chart for months -->
+        <div class="bar" style="--value: 0.6;" data-label="Jan"></div>
+        <div class="bar" style="--value: 0.8;" data-label="Feb"></div>
+        <div class="bar" style="--value: 0.5;" data-label="Mar"></div>
+        <div class="bar" style="--value: 1.0;" data-label="Apr"></div>
+        <div class="bar" style="--value: 0.7;" data-label="May"></div>
+        <div class="bar" style="--value: 0.6;" data-label="Jun"></div>
+    </div>          
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chartModalLabel">Report</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-container" id="modal-chart-container">
+                    <!-- Default Bar chart for months -->
+                    <div class="bar" style="--value: 0.6;" data-label="Jan"></div>
+                    <div class="bar" style="--value: 0.8;" data-label="Feb"></div>
+                    <div class="bar" style="--value: 0.5;" data-label="Mar"></div>
+                    <div class="bar" style="--value: 1.0;" data-label="Apr"></div>
+                    <div class="bar" style="--value: 0.7;" data-label="May"></div>
+                    <div class="bar" style="--value: 0.6;" data-label="Jun"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script src="statistic.js"></script>
+
 </body>
 </html>
