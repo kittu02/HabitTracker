@@ -7,6 +7,8 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="statistic.css" />
+    <script src="statistic.js"></script>
     <link rel="stylesheet" href="styles/index-styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +17,7 @@
   <body>
     <div class="navbar">
       <div class="logo">
-        <span>W.</span>
+        <span>HT</span>
       </div>
       <div class="navbar-item">
         <img src="styles/images/person-running-solid.svg" alt="Habits Icon" />
@@ -36,6 +38,30 @@
       <div class="navbar-item dark-light-mode">
         <img src="styles/images/moon-solid.svg" alt="Dark/Light Mode Toggle" />
         <span><i class="fa-solid fa-moon"></i></span>
+      </div>
+    </div>
+    <div class="row p-0" style="padding: 0%">
+      <div class="col-md-6">
+        <div class="chart-wrapper">
+          <div class="chart-header">
+            <h2>Report</h2>
+            <select id="category-select" onchange="updateCategory()">
+              <option value="months">Last 6 Months</option>
+              <option value="weeks">Last 6 Weeks</option>
+              <option value="days">Last 7 Days</option>
+            </select>
+          </div>
+
+          <div class="chart-container" id="chart-container">
+            <!-- Bar chart for months by default -->
+            <div class="bar" style="--value: 0.6" data-label="Jan"></div>
+            <div class="bar" style="--value: 0.8" data-label="Feb"></div>
+            <div class="bar" style="--value: 0.5" data-label="Mar"></div>
+            <div class="bar" style="--value: 1" data-label="Apr"></div>
+            <div class="bar" style="--value: 0.7" data-label="May"></div>
+            <div class="bar" style="--value: 0.6" data-label="Jun"></div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
