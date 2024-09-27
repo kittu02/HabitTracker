@@ -1,0 +1,101 @@
+/* Base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tracker {
+    overflow-x: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead {
+    background-color: #efefef;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    word-wrap: break-word;
+}
+
+/* Different colors for different habits */
+tr.habit-journal td.check.checked {
+    background-color: #ffe0b2;  /* Light Orange for Journaling */
+}
+
+tr.habit-exercise td.check.checked {
+    background-color: #c8e6c9;  /* Light Green for Exercise */
+}
+
+tr.habit-bathe td.check.checked {
+    background-color: #bbdefb;  /* Light Blue for Bathe + Moisturize */
+}
+
+/* Additional habit colors */
+tr.habit-breakfast td.check.checked {
+    background-color: #ffccbc;  /* Light Red for Eat a healthy breakfast */
+}
+
+tr.habit-no-alcohol td.check.checked {
+    background-color: #e1bee7;  /* Light Purple for No Alcohol */
+}
+
+/* Styling for Goal and Achieved */
+td.goal, td.achieved {
+    background-color: #e8f5e9;
+    font-weight: bold;
+}
+
+.achieved {
+    background-color: #c8e6c9;
+}
+
+td.check {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    th, td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+}
