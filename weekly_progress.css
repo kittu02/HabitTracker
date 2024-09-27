@@ -82,7 +82,7 @@ body {
 
   /* Bottom buttons for Year, Month, Week, Day */
   .view-selector {
-    display: flex;
+    display: none;
     justify-content: space-around;
     margin-top: 10px;
   }

@@ -7,8 +7,15 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="statistic.css" />
     <link rel="stylesheet" href="weekly_progress.css" />
+    <link rel="stylesheet" href="ad.css" />
+    <script src="ad.js"></script>
     <script src="statistic.js"></script>
     <link rel="stylesheet" href="styles/index-styles.css" />
     <meta charset="UTF-8" />
@@ -38,7 +45,7 @@
       </div>
       <div class="navbar-item dark-light-mode">
         <img src="styles/images/moon-solid.svg" alt="Dark/Light Mode Toggle" />
-        <span><i class="fa-solid fa-moon"></i></span>
+        <!-- <span><i class="fa-solid fa-moon"></i></span> -->
       </div>
     </div>
     <div class="row p-2" style="padding: 0%">
@@ -64,7 +71,38 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8 bg-light"></div>
+      <div class="col-md-8">
+        <div class="container p-0 h-100">
+          <div class="card p-3 text-center">
+            <h2 class="card-title">Consistency</h2>
+            <p class="card-value">99%</p>
+            <p class="card-description">Perfection</p>
+          </div>
+
+          <div class="card p-3 text-center">
+            <h2 class="card-title">Today's Progress</h2>
+            <div class="progress-circle">
+              <svg width="100" height="100">
+                <circle class="behind" cx="50" cy="50" r="45"></circle>
+                <circle
+                  class="front"
+                  cx="50"
+                  cy="50"
+                  r="45"
+                  style="stroke-dasharray: 283; stroke-dashoffset: 70"
+                ></circle>
+              </svg>
+            </div>
+          </div>
+
+          <div class="card p-3 text-center">
+            <h2 class="card-title">Streak</h2>
+            <p class="card-value">49</p>
+            <p class="card-description">Way to Go!</p>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-12">
         <div class="habit-tracker-div mt-2 p-2 rounded-3">
           <div class="grid-header">
@@ -93,7 +131,9 @@
             <div class="day-name">S</div>
 
             <!-- Habit 1 -->
-            <div class="habit-name">Coding</div>
+            <div class="habit-name">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
             <div class="day-item day-completed"></div>
             <div class="day-item day-completed"></div>
             <div class="day-item"></div>
@@ -103,7 +143,7 @@
             <div class="day-item"></div>
 
             <!-- Habit 2 -->
-            <div class="habit-name">Gym</div>
+            <div class="habit-name"><i class="fa-solid fa-dumbbell"></i></div>
             <div class="day-item"></div>
             <div class="day-item day-completed"></div>
             <div class="day-item"></div>
@@ -113,7 +153,7 @@
             <div class="day-item day-completed"></div>
 
             <!-- Habit 3 -->
-            <div class="habit-name">Read Books</div>
+            <div class="habit-name"><i class="fa-solid fa-book"></i></div>
             <div class="day-item"></div>
             <div class="day-item"></div>
             <div class="day-item day-completed"></div>
@@ -123,7 +163,7 @@
             <div class="day-item"></div>
 
             <!-- Habit 4 -->
-            <div class="habit-name">Basketball</div>
+            <div class="habit-name"><i class="fa-solid fa-basketball"></i></div>
             <div class="day-item"></div>
             <div class="day-item day-completed"></div>
             <div class="day-item"></div>
@@ -133,7 +173,7 @@
             <div class="day-item"></div>
 
             <!-- Habit 5 -->
-            <div class="habit-name">Study</div>
+            <div class="habit-name"><i class="fa-solid fa-school"></i></div>
             <div class="day-item"></div>
             <div class="day-item"></div>
             <div class="day-item"></div>
@@ -142,6 +182,7 @@
             <div class="day-item"></div>
             <div class="day-item"></div>
           </div>
+          <br />
 
           <!-- Bottom View Selector -->
           <div class="view-selector">
