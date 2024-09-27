@@ -8,7 +8,7 @@ body {
 .container {
     display: flex; /* Flexbox layout */
     justify-content: space-between; /* Space out the cards */
-    max-width: 1200px; /* Max width for the container */
+    max-width: 700px; /* Max width for the container */
     margin: 0 auto; /* Center the container */
     background-color: rgba(204, 255, 51, 0.3); /* Card background color with transparency */
     border-radius: 10px; /* Rounded corners */
@@ -19,7 +19,7 @@ body {
 .card {
     flex: 1; /* Allow cards to grow equally */
     margin: 0 10px; /* Margin between cards */
-    min-width: 250px; /* Minimum width for cards */
+    min-width: 200px; /* Minimum width for cards */
     background-color: #ffffff; /* Card background color */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -33,10 +33,14 @@ body {
 }
 
 .card-title {
+    font-family: 'Roboto', sans-serif; /* Using the Roboto font */
     font-size: 1.4em; /* Title font size */
     color: #333; /* Dark text color */
     margin-bottom: 10px; /* Space below title */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+    letter-spacing: 1px; /* Optional: Add some spacing between letters */
 }
+
 
 .card-value {
     font-size: 2.5em; /* Large font for value */
@@ -59,6 +63,36 @@ body {
     font-size: 0.9em; /* Font size for description */
     color: #555; /* Medium grey for description text */
     margin-top: 10px; /* Space above description */
+}
+.progress-circle {
+    width: 100px; /* Diameter of the circle */
+    height: 100px; /* Diameter of the circle */
+    margin: 0 auto; /* Center the progress circle */
+}
+
+.progress-circle svg {
+    transform: rotate(-90deg); /* Rotate the SVG to start from the top */
+}
+
+.progress-circle circle {
+    fill: none; /* No fill color */
+    stroke-width: 10; /* Width of the stroke */
+}
+
+.behind {
+    stroke: #e6e6e6; /* Color for the background circle */
+}
+
+.front {
+    stroke: #70e000; /* Color for the progress circle */
+    transition: stroke-dashoffset 0.5s ease; /* Smooth transition for the progress */
+}
+
+.progress-text {
+    position: relative  ;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em; /* Font size for percentage text */
+    color: #333; /* Text color */
 }
 
 @media (max-width: 768px) {
