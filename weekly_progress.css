@@ -10,6 +10,10 @@ body {
     padding: 20px;
   }
 
+  #hello{
+    display: none;
+  }
+
   .grid-header h2 {
     font-size: 1.5rem;
     font-weight: bold;
