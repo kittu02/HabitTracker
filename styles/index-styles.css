@@ -20,6 +20,7 @@ body {
     max-width: 600px; /* Limit width on larger screens */
     height: 65px; /* Reduced height for the entire navbar */
     border: #ffffff49 0.5px solid;
+    z-index: 1000; /* Ensure navbar is on top */
 }
 
 .navbar-item {

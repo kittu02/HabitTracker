@@ -1,6 +1,6 @@
 :root {
-  --bar-width: 10px;
-  --bar-max-height: 150px;
+  --bar-width: 15px;
+  --bar-max-height: 140px;
   --bar-gap: 10px; /* Reduced gap between bars */
   --bar-color: #004b23;
   --highlight-color: #57f01a;

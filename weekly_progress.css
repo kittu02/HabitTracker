@@ -64,6 +64,7 @@ body {
 
   /* Highlight Completed Days */
   .day-completed {
+    content: "";
     background-color: #c6ffba;
     color: #3d3d3d;
     border: 2px solid #555;
@@ -77,7 +78,8 @@ body {
   }
 
   .day-item:not(.day-completed):hover {
-    background-color: #444;
+    background-color: #637f6fa5;
+    transition: all 0.2s ease;
   }
 
   /* Bottom buttons for Year, Month, Week, Day */
