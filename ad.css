@@ -10,7 +10,7 @@ body {
     justify-content: space-between; /* Space out the cards */
     max-width: 700px; /* Max width for the container */
     margin: 0 auto; /* Center the container */
-    background-color: rgba(204, 255, 51, 0.3); /* Card background color with transparency */
+    background-color: #333; /* Card background color with transparency */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
     padding: 20px; /* Inner padding */
@@ -20,7 +20,7 @@ body {
     flex: 1; /* Allow cards to grow equally */
     margin: 0 10px; /* Margin between cards */
     min-width: 200px; /* Minimum width for cards */
-    background-color: #ffffff; /* Card background color */
+    background-color: #c6ffba; /* Card background color */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     padding: 20px; /* Inner padding */
@@ -35,7 +35,7 @@ body {
 .card-title {
     font-family: 'Roboto', sans-serif; /* Using the Roboto font */
     font-size: 1.4em; /* Title font size */
-    color: #333; /* Dark text color */
+    color: #000; /* Dark text color */
     margin-bottom: 10px; /* Space below title */
     text-transform: uppercase; /* Optional: Make the text uppercase */
     letter-spacing: 1px; /* Optional: Add some spacing between letters */
@@ -44,7 +44,7 @@ body {
 
 .card-value {
     font-size: 2.5em; /* Large font for value */
-    color: #70e000; /* Color for significant value */
+    color: #006400; /* Color for significant value */
     margin: 5px 0; /* Margin for spacing */
 }
 
