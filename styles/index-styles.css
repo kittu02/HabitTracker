@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.navbar {
+    position: fixed;
+    bottom: 20px; /* Floating above the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3d3d3d;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px; /* Tightened padding inside navbar */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Floating shadow */
+    border-radius: 15px; /* Rounded corners */
+    width: 90%; /* Responsive width */
+    max-width: 600px; /* Limit width on larger screens */
+    height: 65px; /* Reduced height for the entire navbar */
+}
+
+.navbar-item {
+    color: #dcdcdc;
+    margin: 0 4px; /* Reduced space between items */
+    background-color: #4d4d4d;
+    border-radius: 8px; /* Slightly rounded corners */
+    text-align: center;
+    cursor: pointer;
+    flex: 1;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    height: 50px; /* Fixed height */
+}
+
+.navbar-item img {
+    width: 24px; /* Set a fixed size for icons */
+    height: 24px; /* Set a fixed size for icons */
+}
+
+.navbar-item span {
+    display: inline; /* Show text by default */
+}
+
+.navbar-item:hover {
+    background-color: #666666;
+}
+
+.navbar-item.dark-light-mode {
+    background-color: #70e000;
+    color: #000;
+}
+
+.logo {
+    background-color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; /* Same rounded corners as items */
+    width: 50px;
+    height: 50px; /* Fixed size for the logo */
+    padding: 0; /* Remove padding */
+    margin: 0 4px; /* Match margin with other items */
+}
+
+.logo span {
+    font-weight: bold;
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar-item img {
+        display: inline; /* Show icons on mobile */
+    }
+
+    .navbar-item span {
+        display: none; /* Hide text on mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-item img {
+        display: none; /* Hide icons on desktop */
+    }
+
+    .navbar-item span {
+        display: inline; /* Show text on larger screens */
+    }
+
+    .navbar-item.dark-light-mode img {
+        display: inline; /* Show the moon icon on desktop */
+    }
+}
