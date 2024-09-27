@@ -2,8 +2,8 @@
     --bar-width: 10px;
     --bar-max-height: 150px;
     --bar-gap: 20px;
-    --bar-color: #A2D9CE;
-    --highlight-color: #58D68D;
+    --bar-color: #ccff33;
+    --highlight-color: #38b000;
   }
   
   .chart-wrapper {
@@ -87,7 +87,7 @@
         --bar-width: 10px;
         --bar-max-height: 150px;
         --bar-gap: 20px;
-        --bar-color: #A2D9CE;
-        --highlight-color: #58D68D;
+        --bar-color: #004b23;
+        --highlight-color: #38b000;
       }
   }
