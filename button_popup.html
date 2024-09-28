@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popup Animation from Button Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+    <style>
+        /* General styling for the popup */
+        .popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0);
+            width: 800px;
+            height: 500px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.2s ease-in-out, top 0.2s ease-in-out, left 0.2s ease-in-out;
+            z-index: 1000;
+            visibility: hidden;
+        }
+
+        /* Show popup when active */
+        .popup.active {
+            transform: scale(1);
+            visibility: visible;
+        }
+
+        /* Style for overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 999;
+        }
+
+        /* Show overlay when active */
+        .overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="container-fluid">
+    <ul>
+        <li><strong>My Website</strong></li>
+    </ul>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" role="button">Contact</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <hgroup>
+        <h2>Popup Animation Example</h2>
+        <h3>Click the button to trigger the popup from the center of the button</h3>
+    </hgroup>
+    
+    <button id="popupButton" onclick="showPopup(event)">Open Popup</button>
+
+    <!-- Popup content -->
+    <div class="popup" id="popup">
+        <h2>Popup Title</h2>
+        <p>This is the content inside the popup. You can add any information you want here.</p>
+        <button onclick="closePopup()">Close Popup</button>
+    </div>
+
+    <!-- Overlay background -->
+    <div class="overlay" id="overlay"></div>
+</main>
+
+<footer class="container">
+    <small><a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a></small>
+</footer>
+
+<script>
+    function showPopup(event) {
+        const button = event.target;
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+
+        // Get the button's position on the screen
+        const buttonRect = button.getBoundingClientRect();
+
+        // Calculate the center of the button
+        const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+        const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+
+        // Get the popup's dimensions
+        const popupWidth = popup.offsetWidth;
+        const popupHeight = popup.offsetHeight;
+
+        // Set popup position to align its center with the button's center
+        popup.style.top = `${buttonCenterY - popupHeight / 2}px`;
+        popup.style.left = `${buttonCenterX - popupWidth / 2}px`;
+
+        // Set the transform origin to the center of the button
+        popup.style.transformOrigin = 'center center';
+
+        // Show popup and overlay
+        popup.classList.add('active');
+        overlay.classList.add('active');
+    }
+
+    function closePopup() {
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+
+        // Hide popup and overlay
+        popup.classList.remove('active');
+        overlay.classList.remove('active');
+    }
+</script>
+
+</body>
+</html>
