@@ -1,69 +1,51 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-}
-
+/* Navbar styles (updated) */
 .navbar {
-    position: fixed;
-    /* bottom: 20px; Floating above the bottom */
-    transform: translateX(-50%);
+    position: relative;
     background-color: #3d3d3d7d;
     display: flex;
     justify-content: space-between;
-    padding: 5px; /* Tightened padding inside navbar */
+    padding: 5px !important; /* Reduced padding */
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Floating shadow */
-    border-radius: 15px; /* Rounded corners */
-    width: 90%; /* Responsive width */
-    max-width: 600px; /* Limit width on larger screens */
-    height: 65px; /* Reduced height for the entire navbar */
+    border-radius: 15px;
+    width: 100%; /* Ensure the navbar takes full width of the grid */
+    height: 60px; /* Fixed height */
     border: #ffffff6c 0.5px solid;
-    z-index: 1000; /* Ensure navbar is on top */
+    z-index: 1000;
 }
 
 .navbar-item {
     color: #dcdcdc;
     margin: 0 4px; /* Reduced space between items */
-    background-color: #4d4d4d;
-    border-radius: 8px; /* Slightly rounded corners */
+    background-color: #c3f583;
+    border-radius: 8px;
     text-align: center;
     cursor: pointer;
-    flex: 1;
+    flex: 1; /* Distribute evenly across navbar */
     display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
-    height: 50px; /* Fixed height */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+    height: 50px; /* Match item height with navbar */
+}
+.navbar-item:hover{
+    opacity: 70%;
+    transition: all ease 0.2s;
 }
 
 .navbar-item img {
-    width: 24px; /* Set a fixed size for icons */
-    height: 24px; /* Set a fixed size for icons */
-}
-
-.navbar-item span {
-    display: inline; /* Show text by default */
-}
-
-.navbar-item:hover {
-    background-color: #666666;
-}
-
-.navbar-item.dark-light-mode {
-    background-color: #70e000;
-    color: #000;
+    width: 24px;
+    height: 24px;
 }
 
 .logo {
-    background-color: #222222;
+    background-color: #242c36;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px; /* Same rounded corners as items */
+    border-radius: 8px;
     width: 50px;
-    height: 50px; /* Fixed size for the logo */
-    padding: 0; /* Remove padding */
-    margin: 0 4px; /* Match margin with other items */
+    height: 50px;
+    padding: 0;
+    margin: 0 4px;
 }
 
 .logo span {
@@ -72,27 +54,18 @@ body {
     font-size: 24px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-    .navbar-item img {
-        display: inline; /* Show icons on mobile */
-    }
-
-    .navbar-item span {
-        display: none; /* Hide text on mobile */
-    }
+/* Ensure the grid item fits the navbar properly */
+.grid-item-navbar {
+    grid-column: span 5;
+    grid-row: span 1;
+    display: flex; /* Make it a flex container */
+    justify-content: center;
+    align-items: center;
+    padding: 0; /* Remove padding to fit perfectly inside grid */
 }
 
-@media (min-width: 769px) {
-    .navbar-item img {
-        display: none; /* Hide icons on desktop */
-    }
-
-    .navbar-item span {
-        display: inline; /* Show text on larger screens */
-    }
-
-    .navbar-item.dark-light-mode img {
-        display: inline; /* Show the moon icon on desktop */
-    }
+/* Ensure the navbar occupies the full space of the grid-item */
+.grid-item-navbar .navbar {
+    width: 100%;
+    height: 100%; /* Keep this in sync with navbar height */
 }
