@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Dynamic Habit Frequency Card">
-  <title>Habit Frequency Card</title>
+  <title>Habit Frequency Card - Dark Mode</title>
 
   <!-- Include Pico.css for basic styling -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
@@ -13,12 +13,18 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    /* Dark Mode Styling */
+    body {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
     /* Card-specific styling */
     .card {
       padding: 1.5rem;
-      background-color: #fff;
+      background-color: #333;
       border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       max-width: 350px;
       margin: 2rem auto;
       font-family: Arial, sans-serif;
@@ -41,7 +47,7 @@
     .card-footer {
       text-align: center;
       font-size: 0.875rem;
-      color: #666;
+      color: #aaa;
       margin-top: 1rem;
     }
 
@@ -55,7 +61,7 @@
 
     /* Customize Chart.js styles */
     canvas {
-      background-color: #f9f9f9;
+      background-color: #2e2e2e;
     }
   </style>
 </head>
@@ -64,7 +70,7 @@
   <!-- Habit Frequency Card -->
   <div class="card">
     <div class="card-header">
-      Activity Stats
+      Stats
     </div>
     
     <div class="card-body">
@@ -115,7 +121,7 @@
 
         // Draw percentage improvement at the last point
         ctx.font = 'bold 12px Arial';
-        ctx.fillStyle = '#000';
+        ctx.fillStyle = '#fff'; // White text
         ctx.textAlign = 'center';
         ctx.fillText('+2.5%', lastDataPoint.x, lastDataPoint.y - 10); // Adjust text position above the point
       }
@@ -127,7 +133,12 @@
 
       // Get the canvas context
       const ctx = document.getElementById('habitChart').getContext('2d');
-      
+
+      // Create the gradient for the green shading under the line
+      const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(0, 'rgba(0, 200, 83, 0.5)');  // Green at the top
+      gradient.addColorStop(1, 'rgba(0, 200, 83, 0)');    // Transparent at the bottom
+
       // Create the line chart using Chart.js
       const habitChart = new Chart(ctx, {
         type: 'line',
@@ -136,9 +147,9 @@
           datasets: [{
             label: 'Habit Frequency',
             data: frequencyData,  // Habit frequency data
-            fill: 'start',
-            borderColor: '#00c853',
-            backgroundColor: 'rgba(0, 200, 83, 0.1)',
+            fill: true,
+            borderColor: '#00c853', // Bright green line
+            backgroundColor: gradient,  // Gradient shading below the line
             tension: 0.3,
             pointBackgroundColor: '#00c853', // Color the points
             pointBorderColor: '#fff',
@@ -173,7 +184,7 @@
               },
               ticks: {
                 stepSize: 0.5,
-                color: '#666',
+                color: '#aaa',
               },
               grid: {
                 display: false
@@ -184,7 +195,7 @@
                 display: false,
               },
               ticks: {
-                color: '#666',
+                color: '#aaa',
               },
               grid: {
                 display: false,
