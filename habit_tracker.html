@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habit Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> <!-- Poppins Font -->
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .habit-tracker {
+      background-color: #4d4d4d;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      max-height: 350px;
+      overflow-y: scroll; /* Enable vertical scrolling */
+      scrollbar-width: none; /* Firefox */
+    }
+    .habit-tracker::-webkit-scrollbar {
+      display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
+    }
+    .habit-tracker h2 {
+      color: white;
+      font-size: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      background-color: #4d4d4d; /* Same background color to blend with the box */
+      padding-bottom: 10px;
+      z-index: 1;
+    }
+    .habit {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row-reverse; /* Reverses the order of label and checkbox */
+      margin-bottom: 10px;
+      color: white;
+      font-size: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #757575; /* Line under each habit */
+    }
+    .habit input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+    /* Strike through effect when checkbox is checked */
+    .habit input[type="checkbox"]:checked + label {
+      text-decoration: line-through;
+      color: #bbb; /* Change the color of the label when checked */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="habit-tracker">
+    <h2>Habit Tracker</h2>
+    <div class="habit">
+      <input type="checkbox" id="habit1">
+      <label for="habit1">Wake up at 7</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit2">
+      <label for="habit2">Play Guitar</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit3">
+      <label for="habit3">Learn Spanish</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit4">
+      <label for="habit4">Read 10 pages</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit5">
+      <label for="habit5">Gym</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit6">
+      <label for="habit6">Meditate</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit7">
+      <label for="habit7">Go for Walk</label>
+    </div>
+    <div class="habit">
+      <input type="checkbox" id="habit8">
+      <label for="habit8">Cook healthy food</label>
+    </div>
+  </div>
+
+</body>
+</html>
