@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dynamic Habit Frequency Card">
+  <title>Habit Frequency Card - Dark Mode</title>
+
+  <!-- Include Pico.css for basic styling -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* Dark Mode Styling */
+    body {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    /* Card-specific styling */
+    .card {
+      padding: 1.5rem;
+      background-color: #333;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      max-width: 350px;
+      margin: 2rem auto;
+      font-family: Arial, sans-serif;
+    }
+
+    .card-header {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .card-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .card-footer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #aaa;
+      margin-top: 1rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 600px) {
+      .card {
+        padding: 1rem;
+        max-width: 100%;
+      }
+    }
+
+    /* Customize Chart.js styles */
+    canvas {
+      background-color: #2e2e2e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Habit Frequency Card -->
+  <div class="card">
+    <div class="card-header">
+      Stats
+    </div>
+    
+    <div class="card-body">
+      <canvas id="habitChart" width="300" height="150"></canvas>
+    </div>
+    
+    <div class="card-footer">
+      <strong>+2.5%</strong> improvement this week!
+    </div>
+  </div>
+
+  <!-- JavaScript for Chart.js -->
+  <script>
+    // Function to get an array of the last 7 dates
+    function getLast7Days() {
+      const dates = [];
+      const today = new Date();
+      
+      for (let i = 6; i >= 0; i--) {
+        const pastDate = new Date(today);
+        pastDate.setDate(today.getDate() - i); // Get past dates
+        const formattedDate = `${pastDate.getMonth() + 1}/${pastDate.getDate()}`; // Format as MM/DD
+        dates.push(formattedDate);
+      }
+      
+      return dates;
+    }
+
+    // Sample frequency data for the last 7 days (generated randomly for demo)
+    const frequencyData = [1.2, 1.5, 2.0, 2.5, 2.2, 2.3, 2.7]; 
+
+    // Plugin to draw a vertical black line at the last data point
+    const verticalLinePlugin = {
+      id: 'lastPointLine',
+      afterDatasetsDraw: function(chart) {
+        const ctx = chart.ctx;
+        const lastDataPoint = chart.getDatasetMeta(0).data[frequencyData.length - 1]; // Last data point
+
+        // Draw vertical black line downwards
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(lastDataPoint.x, lastDataPoint.y); // Start from the data point
+        ctx.lineTo(lastDataPoint.x, chart.chartArea.bottom); // Extend line to the bottom of the chart
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000'; // Black color for the line
+        ctx.stroke();
+        ctx.restore();
+
+        // Draw percentage improvement at the last point
+        ctx.font = 'bold 12px Arial';
+        ctx.fillStyle = '#fff'; // White text
+        ctx.textAlign = 'center';
+        ctx.fillText('+2.5%', lastDataPoint.x, lastDataPoint.y - 10); // Adjust text position above the point
+      }
+    };
+
+    // Run the script after the window has loaded
+    window.onload = function() {
+      const dates = getLast7Days(); // Get last 7 days for x-axis labels
+
+      // Get the canvas context
+      const ctx = document.getElementById('habitChart').getContext('2d');
+
+      // Create the gradient for the green shading under the line
+      const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+      gradient.addColorStop(0, 'rgba(0, 200, 83, 0.5)');  // Green at the top
+      gradient.addColorStop(1, 'rgba(0, 200, 83, 0)');    // Transparent at the bottom
+
+      // Create the line chart using Chart.js
+      const habitChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: dates,  // Days of the week as MM/DD format
+          datasets: [{
+            label: 'Habit Frequency',
+            data: frequencyData,  // Habit frequency data
+            fill: true,
+            borderColor: '#00c853', // Bright green line
+            backgroundColor: gradient,  // Gradient shading below the line
+            tension: 0.3,
+            pointBackgroundColor: '#00c853', // Color the points
+            pointBorderColor: '#fff',
+            pointRadius: 5,
+            pointHoverRadius: 8,
+            borderWidth: 2,
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#00c853',
+            pointHoverBorderWidth: 2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false, // Hide the legend
+            },
+            tooltip: {
+              callbacks: {
+                label: function(tooltipItem) {
+                  return `+${tooltipItem.raw}%`;
+                }
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: false,
+              },
+              ticks: {
+                stepSize: 0.5,
+                color: '#aaa',
+              },
+              grid: {
+                display: false
+              }
+            },
+            x: {
+              title: {
+                display: false,
+              },
+              ticks: {
+                color: '#aaa',
+              },
+              grid: {
+                display: false,
+              }
+            }
+          }
+        },
+        plugins: [verticalLinePlugin] // Attach the custom plugin for the vertical line
+      });
+    };
+  </script>
+  
+</body>
+</html>
