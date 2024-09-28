@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #e0f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .tracker-container {
+        display: flex;
+        gap: 20px;
+      }
+
+      .tracker-card {
+        background-color: #d4edda;
+        width: 180px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      .tracker-card.water {
+        background-color: #b2dfdb;
+      }
+
+      .tracker-card.steps {
+        background-color: #ffcc80;
+      }
+
+      .tracker-card h2 {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #34495e;
+      }
+
+      /* Semi-circle progress */
+      .progress-circle {
+        position: relative;
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+      }
+
+      svg {
+        transform: rotate(-90deg);
+        width: 100%;
+        height: 100%;
+      }
+
+      circle {
+        fill: none;
+        stroke-width: 12;
+        stroke-linecap: round;
+      }
+
+      .circle-bg {
+        stroke: #e0f7fa;
+      }
+
+      .circle-progress {
+        stroke: #76c7c0;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283; /* Full circle */
+        transition: stroke-dashoffset 0.5s;
+      }
+
+      .progress-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        font-weight: bold;
+        color: #34495e;
+      }
+
+      /* Stats and wave section */
+      .stats {
+        margin-top: 10px;
+        font-size: 12px;
+        color: #34495e;
+      }
+
+      .stats strong {
+        font-size: 18px;
+        color: #000;
+      }
+
+      .wave {
+        background-color: #34495e;
+        border-radius: 50% 50% 0 0;
+        height: 40px;
+        color: white;
+        padding-top: 5px;
+        font-size: 12px;
+        text-align: center;
+        position: relative;
+      }
+
+      .wave span {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="tracker-container">
+      <!-- Water Intake Tracker -->
+      <div class="tracker-card water">
+        <h2>Water</h2>
+        <div class="progress-circle">
+          <svg>
+            <circle class="circle-bg" cx="60" cy="60" r="45"></circle>
+            <circle
+              class="circle-progress"
+              cx="60"
+              cy="60"
+              r="45"
+              style="stroke-dashoffset: 90"
+            ></circle>
+          </svg>
+          <div class="progress-text">68%</div>
+        </div>
+        <div class="stats">
+          Average intake per day<br />
+          <strong>1200ml</strong>
+        </div>
+        <div class="wave">
+          <span>+50 ml</span>
+        </div>
+      </div>
+
+      <!-- Steps Tracker -->
+      <div class="tracker-card steps">
+        <h2>Steps</h2>
+        <div class="progress-circle">
+          <svg>
+            <circle class="circle-bg" cx="60" cy="60" r="45"></circle>
+            <circle
+              class="circle-progress"
+              cx="60"
+              cy="60"
+              r="45"
+              style="stroke-dashoffset: 40"
+            ></circle>
+          </svg>
+          <div class="progress-text">85%</div>
+        </div>
+        <div class="stats">
+          Total steps today<br />
+          <strong>8500</strong>
+        </div>
+        <div class="wave">
+          <span>+500 steps</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

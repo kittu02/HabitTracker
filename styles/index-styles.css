@@ -7,8 +7,7 @@ body {
 
 .navbar {
     position: fixed;
-    bottom: 20px; /* Floating above the bottom */
-    left: 50%;
+    /* bottom: 20px; Floating above the bottom */
     transform: translateX(-50%);
     background-color: #3d3d3d7d;
     display: flex;

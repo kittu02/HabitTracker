@@ -1,0 +1,101 @@
+body {
+    font-family: 'Poppins', sans-serif; /* Use imported font */
+    margin: 0; /* Remove default margin */
+}
+
+.tracker-container {
+    display: flex; /* Use flexbox for vertical stacking */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align to the top */
+    width: 100%; /* Full width */
+    height: 100%;
+    transform: translateY(-2%);
+}
+
+.tracker-card {
+    background-color: #d4edda; /* Background color */
+    padding: 10px; /* Padding for the card */
+    border-radius: 20px; /* Rounded corners */
+    /* position: relative; Relative positioning for child elements */
+    text-align: center; /* Center text within the card */
+    width: 100%; /* Full width of card */
+    max-width: 250px; /* Max width of card */
+    color: #2c3e50; /* Text color */
+    margin: 5px;
+}
+.tracker-card {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Space items between top and bottom */
+    height: 100%; /* Full height of the parent */
+}
+
+
+h2 {
+    font-size: 17px !important; /* Font size for the title */
+    margin: 0; /* Remove default margin */
+    padding-bottom: 15px; /* Space below title */
+    text-align: center; /* Align title to the left */
+}
+
+.progress-circle {
+    width: 100px; /* Width for the circle */
+    height: 100px; /* Height for the circle */
+    margin: 0 auto; /* Center the circle */
+    position: relative; /* Relative positioning for child elements */
+    display: flex; /* Flexbox to center text */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+
+.progress-circle svg {
+    display: block; /* Ensure SVG takes up the full area */
+    width: 100%; /* Fill the parent width */
+    height: 100%; /* Fill the parent height */
+    transform: rotate(-90deg); /* Rotate for proper starting position */
+}
+
+.circle-bg,
+.circle-progress {
+    fill: none; /* No fill for the circles */
+    stroke-width: 8; /* Width of stroke */
+    transform-origin: center; /* Center the rotation */
+}
+
+.circle-bg {
+    stroke: #e0f7fa; /* Background circle color */
+}
+
+.circle-progress {
+    stroke: #76c7c0; /* Progress circle color */
+    stroke-dasharray: 219.91; /* Circumference for a circle of r=35 */
+    stroke-dashoffset: 219.91; /* Start fully off */
+    transition: stroke-dashoffset 1s ease; /* Animation for progress */
+}
+
+.progress-text {
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* True centering */
+    font-size: 24px; /* Font size for percentage */
+    font-weight: bold; /* Bold font */
+    color: #333; /* Text color */
+}
+
+.stats {
+    margin-top: 10px; /* Space above stats */
+    font-size: 14px; /* Font size for stats */
+}
+
+.wave {
+    height: 30px; /* Height for wave */
+    font-size: 12px; /* Font size for wave */
+    color: #555; /* Color for wave */
+}
+
+/* Animation */
+.circle-progress.animate {
+    transition: stroke-dashoffset 2s ease-out; /* Animation for progress */
+}
