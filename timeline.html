@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto-Generated Quotes</title>
+  
+  <!-- Link to Google Font Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #1c9a68;
+      margin: 0;
+    }
+    
+    .quote-card-custom {
+    background: linear-gradient(to bottom, #71ff87, #009600); /* Green gradient from top to bottom */
+    padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-family: 'Playfair Display', serif; /* Use Playfair Display for the quotes */
+      width: 600px;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .quote-text-custom {
+      font-size: 30px; /* Larger font size */
+      font-weight: 600; /* Medium weight */
+      color: black; /* Black font color */
+      font-style: italic; /* Italic for emphasis */
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      padding: 20px;
+    }
+
+    .quote-text-custom.show {
+      opacity: 1;
+    }
+
+    .quote-text-custom::before, .quote-text-custom::after {
+      content: '"';
+      font-family: 'Playfair Display', cursive; /* Fancy cursive quotes */
+      font-size: 40px; /* Bigger for more emphasis */
+      vertical-align: middle;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="quote-card-custom">
+    <p class="quote-text-custom" id="quoteTextCustom">Loading an inspiring quote...</p>
+  </div>
+
+  <script>
+    const quotesCustom = [
+      "The only way to do great work is to love what you do.",
+      "Success is not the key to happiness. Happiness is the key to success.",
+      "Believe you can and you're halfway there.",
+      "Your time is limited, so don't waste it living someone else's life.",
+      "The best way to predict the future is to create it.",
+      "Dream big and dare to fail.",
+      "Life is 10% what happens to us and 90% how we react to it."
+    ];
+
+    function generateQuoteAutomatically() {
+      const randomIndex = Math.floor(Math.random() * quotesCustom.length);
+      const quoteElement = document.getElementById('quoteTextCustom');
+      
+      // Add fade-out effect before changing the quote
+      quoteElement.classList.remove('show');
+      setTimeout(() => {
+        quoteElement.textContent = `${quotesCustom[randomIndex]}`; // Fancy quotes handled by CSS
+        quoteElement.classList.add('show');
+      }, 500); // Wait for the fade-out effect
+    }
+
+    // Automatically generate a quote every 20 seconds
+    setInterval(generateQuoteAutomatically, 20000); // 20,000 milliseconds = 20 seconds
+
+    // Initially load a quote when the page loads
+    window.onload = generateQuoteAutomatically;
+  </script>
+
+</body>
+</html>
