@@ -31,6 +31,7 @@
     align-items: center;
     font-size: 1.5rem;
     color: #e9ffe3;
+    
   }
 
   /* Layout based on your latest image */
@@ -39,6 +40,7 @@
   .grid-item-1 {
     grid-column: span 7;
     grid-row: span 4;
+    border: none;
   }
 
   .grid-item-2 {
@@ -50,12 +52,15 @@
   .grid-item-3 {
     grid-column: span 5;
     grid-row: span 1;
+    border: none;
   }
 
   /* Second row: 5x5, 6x2, 5x5 */
   .grid-item-4 {
     grid-column: span 5;
     grid-row: span 5;
+    border:none;
+
   }
 
   .grid-item-5 {
@@ -64,14 +69,24 @@
   }
 
   .grid-item-6 {
+    border: none;
     grid-column: span 5;
     grid-row: span 5;
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Dark mode background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    margin: 0;
+
   }
 
   /* Third row: 5x2, 5x1 (navbar), 6x3 */
   .grid-item-7 {
     grid-column: span 5;
     grid-row: span 2;
+    border: none;
   }
 
   .grid-item-navbar {

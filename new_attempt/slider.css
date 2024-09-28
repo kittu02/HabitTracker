@@ -1,0 +1,81 @@
+
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%px; /* Adjust height */
+    margin: 50px auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 1s ease-in-out;
+    width: 100%; /* 100% per slide, we have 3 slides, so 300% */
+  }
+  
+  .carousel-slide {
+    position: relative;
+    height: 100% !important;
+    flex: 1 0 100%;
+    height: 140px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    color: white;
+  }
+  
+  /* Gradient overlay */
+  .carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(to right, rgba(0, 0, rgba(0, 255, 0, 1)); */
+    background-color: rgba(0, 128, 0, 0.597);
+    z-index: 1;
+    border-radius: 15px;
+  }
+  
+  .habit-info {
+    position: relative; /* Ensures text is above gradient */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 2; /* Makes sure the text is above the gradient */
+  }
+  
+  .habit-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    flex-grow: 1;
+  }
+  
+  .percentage {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: black;
+    flex-shrink: 0;
+  }
+  
+  .slide-1 {
+    background-image: url('https://c8.alamy.com/comp/2DA67KT/one-continuous-line-drawing-of-stack-of-book-line-up-with-computer-laptop-book-and-a-cup-of-coffee-study-space-desk-concept-single-line-draw-design-2DA67KT.jpg');
+  }
+  
+  .slide-2 {
+    background-image: url('https://www.shutterstock.com/image-vector/single-continuous-line-drawing-young-260nw-1663866574.jpg');
+  }
+  
+  .slide-3 {
+    background-image: url('https://thumbs.dreamstime.com/b/continuous-one-line-drawing-meditation-woman-girl-doing-relaxation-yoga-exercise-lotus-position-vector-illustration-164450222.jpg');
+  }
+  

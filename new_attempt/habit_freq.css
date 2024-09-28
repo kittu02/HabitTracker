@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c; /* Dark mode background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .grid-item-6 {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensure it takes full height of the grid item */
+    border: none;
+    border-radius: 50px !important;
+}
+
+.card {
+    width: 100%; /* Make card take full width of the parent */
+    height: 100% !important; /* Make card take full height of the parent */
+    padding: 20px; /* Adjust padding for better fit */
+    background-color: #242c36 !important; /* Dark background for the card */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for the card */
+    display: flex;
+    flex-direction: column; /* Change to column for better fit */
+    align-items: stretch; /* Allow content to stretch */
+    
+}
+
+
+
+  
+  .header {
+    font-size: 14px;
+    color: #fff; /* White text for header */
+    writing-mode: vertical-rl; /* Vertical text writing mode */
+    transform: rotate(180deg); /* Flip the text to read from top to bottom */
+    margin-right: 10px; /* Space between header and grid */
+    text-align: center;
+    height: 60px; /* Set height for the header */
+  }
+  
+  .activity-container {
+    display: flex;
+    flex: 1; /* Allow the activity container to grow */
+  }
+  
+  .activity-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(7, 1fr);    /* 7 rows */
+    grid-gap: 5px; /* Reduced gap to fit better */
+    justify-items: center;
+    flex: 1; /* Allow grid to fill available space */
+  }
+  
+  .day {
+    width: 35px;
+    height: 35px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    opacity: 0;
+    transform: scale(0); /* Start scale at 0 for pop-out effect */
+    animation: popIn 0.3s forwards ease-out;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Initial shadow */
+    position: relative; /* For tooltip positioning */
+  }
+  
+  /* Keyframe for the pop-out effect */
+  @keyframes popIn {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Glowing effect for each activity level */
+  .level-1 {
+    background-color: #d0f0d0; /* Light green */
+    box-shadow: 0 0 5px #d0f0d0; /* Light green glow */
+  }
+  .level-2 {
+    background-color: #90ee90; /* Medium green */
+    box-shadow: 0 0 5px #90ee90; /* Medium green glow */
+  }
+  .level-3 {
+    background-color: #32cd32; /* Dark green */
+    box-shadow: 0 0 5px #32cd32; /* Dark green glow */
+  }
+  .level-4 {
+    background-color: #228b22; /* Darker green */
+    box-shadow: 0 0 5px #228b22; /* Darker green glow */
+  }
+  
+  /* Style for the days of the week */
+  .days-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px; /* Reduced margin for better fit */
+  }
+  
+  .day-name {
+    font-size: 12px;
+    color: #fff; /* White text for days */
+    margin-bottom: 5px;
+    /* font-weight: 500; */
+  }
+  
+  .day-name.sunday {
+    color: red; /* Highlight Sunday in red */
+  }
+  
+  /* Tooltip styles */
+  .tooltip {
+    visibility: hidden;
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 10;
+    bottom: 25px; /* Position above the grid item */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  
+  .day:hover .tooltip {
+    visibility: visible; /* Show tooltip on hover */
+  }
+  

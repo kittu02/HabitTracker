@@ -1,0 +1,49 @@
+
+.habit-tracker {
+  background-color: #242c36;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  /* max-height: 350px; */
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll; /* Enable vertical scrolling */
+  scrollbar-width: none; /* Firefox */
+}
+.habit-tracker::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Webkit browsers (Chrome, Safari) */
+}
+.habit-tracker h2 {
+  color: white;
+  font-size: 30px !important;
+  /* text-decoration: underline; */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: left;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  background-color: #242c36; /* Same background color to blend with the box */
+  padding-bottom: 10px;
+  z-index: 1;
+}
+.habit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse; /* Reverses the order of label and checkbox */
+  margin-bottom: 10px;
+  color: white;
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #757575; /* Line under each habit */
+}
+.habit input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+/* Strike through effect when checkbox is checked */
+.habit input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: #bbb; /* Change the color of the label when checked */
+}

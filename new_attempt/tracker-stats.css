@@ -32,10 +32,11 @@ body {
 
 
 h2 {
-    font-size: 17px !important; /* Font size for the title */
+    font-size: 20px !important; /* Font size for the title */
     margin: 0; /* Remove default margin */
     padding-bottom: 15px; /* Space below title */
     text-align: center; /* Align title to the left */
+    padding-top: 15px;
 }
 
 .progress-circle {
